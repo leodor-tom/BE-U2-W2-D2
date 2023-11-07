@@ -13,5 +13,5 @@ public class BlogPost {
     private String title;
     private String cover;
     private String content;
-    private String readingTime;
+    private long readingTime;
 }

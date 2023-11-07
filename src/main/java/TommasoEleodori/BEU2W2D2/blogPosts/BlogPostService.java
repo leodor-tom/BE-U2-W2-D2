@@ -23,11 +23,11 @@ public class BlogPostService {
         return matchingPost.orElseThrow(() -> new NotFoundException(id));
     }
 
-    public int save(BlogPost body) {
+    public BlogPost save(BlogPost body) {
         Random rndm = new Random();
         body.setId(rndm.nextInt(1, 300));
         this.blogPosts.add(body);
-        return body.getId();
+        return body;
     }
 
     public BlogPost findByIdAndUpdate(int id, BlogPost body) {
