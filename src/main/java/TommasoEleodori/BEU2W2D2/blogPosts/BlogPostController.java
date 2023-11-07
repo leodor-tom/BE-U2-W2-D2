@@ -1,37 +1,38 @@
-package TommasoEleodori.BEU2W2D2.authors;
+package TommasoEleodori.BEU2W2D2.blogPosts;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/authors")
-public class AuthorController {
+@Controller
+@RequestMapping("/blogPosts")
+public class BlogPostController {
     @Autowired
-    private AuthorService as;
+    private BlogPostService bps;
 
     @GetMapping
-    public List<Author> getAuthors() {
-        return as.getAuthors();
+    public List<BlogPost> getAuthors() {
+        return bps.getAuthors();
     }
 
     @GetMapping("/{id}")
-    public Author findById(@PathVariable int id) {
-        return as.findById(id);
+    public BlogPost findById(@PathVariable int id) {
+        return bps.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public int save(@RequestBody Author body) {
-        as.save(body);
+    public int save(@RequestBody BlogPost body) {
+        bps.save(body);
         return body.getId();
     }
 
     @PutMapping("/{id}")
-    public Author findByIdAndUpdate(@PathVariable int id, @RequestBody Author body) {
-        return as.findByIdAndUpdate(id, body);
+    public BlogPost findByIdAndUpdate(@PathVariable int id, @RequestBody BlogPost body) {
+        return bps.findByIdAndUpdate(id, body);
     }
 
     @DeleteMapping
@@ -43,6 +44,6 @@ public class AuthorController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void findByIdAndDelete(@PathVariable int id) {
-        as.findByIdAndDelete(id);
+        bps.findByIdAndDelete(id);
     }
 }

@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.Random;
 
 @Service
-public class AuthorServices {
+public class AuthorService {
     private List<Author> authors = new ArrayList<>();
 
     public List<Author> getAuthors() {
