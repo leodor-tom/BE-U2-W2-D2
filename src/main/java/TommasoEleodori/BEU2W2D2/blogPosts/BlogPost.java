@@ -11,7 +11,7 @@ public class BlogPost {
     private int id;
     private String category;
     private String title;
-    private String cover;
+    private String cover = "https://picsum.photos/200/300";
     private String content;
     private long readingTime;
 }
